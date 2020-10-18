@@ -1,4 +1,4 @@
-package com.example.davie;
+package com.example.davie.jianZhiOffer;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,6 +25,11 @@ public class ArrayRepeatNum {
      *  (3)遍历数组中的每个元素
      *    - 如果该元素已经存在集合中，则直接返回该重复元素
      *    - 如果元素不存在，则添加至集合中
+     *
+     *  时间复杂度：O(n)
+     *  空间复杂度：0(n)
+     *  暴力解法：
+     *     双重遍历数组，直至找到重复元素
      * @param nums
      * @return
      */
