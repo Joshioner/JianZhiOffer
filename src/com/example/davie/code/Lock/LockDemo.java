@@ -8,12 +8,13 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockDemo extends Thread{
     private int num = 0;
     ReentrantLock reentrantLock = new ReentrantLock(true);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
         LockDemo demo = new LockDemo();
         for (int i = 0;i < 10;i++){
            executorService.execute(demo);
         }
+        demo.wait();
     }
 
     public void run(){
