@@ -14,4 +14,27 @@ public class LowestCommonAncestor68 {
        }
        return  leftNode == null ? rightNode : leftNode;
     }
+    public boolean VerifySquenceOfBST(int [] sequence) {
+        if (sequence == null || sequence.length <= 0){
+            return false;
+        }
+        return isSquenceOfBST(sequence,0,sequence.length - 1);
+    }
+    private boolean isSquenceOfBST(int[] sequence,int left,int right){
+        if (right <= left){
+            return true;
+        }
+        int currentIdx = left;
+        int root = sequence[right];
+        for (currentIdx = left;currentIdx < right;currentIdx++){
+            if (sequence[currentIdx] >= root)
+                break;
+        }
+        for (int i = currentIdx;i < right - 1;i++){
+            if (sequence[i] < root){
+                return false;
+            }
+        }
+        return isSquenceOfBST(sequence,left,currentIdx - 1) && isSquenceOfBST(sequence,currentIdx,right - 1);
+    }
 }

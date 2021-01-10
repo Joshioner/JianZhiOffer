@@ -5,12 +5,12 @@ public class MaxProfit63 {
          if (prices == null || prices.length <= 1){
              return 0;
          }
-         int maxPrice = 0;
-         int min = prices[0];
-         for (int i = 1;i < prices.length;i++){
-             min = Math.min(min,prices[i]);
-             maxPrice = Math.max(maxPrice,prices[i] - min);
+         int maxProfit = 0;
+         int minPrice = prices[0];
+         for (int i = 1;i < prices.length ;i++){
+             minPrice = Math.min(prices[i],minPrice);
+             maxProfit = Math.max(maxProfit,prices[i] - minPrice);
          }
-         return maxPrice;
+         return maxProfit;
     }
 }

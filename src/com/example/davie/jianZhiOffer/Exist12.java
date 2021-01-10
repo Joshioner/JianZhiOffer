@@ -14,18 +14,15 @@ public class Exist12 {
     }
 
     public static boolean exist(int row,int column,char[][] board,String word,int index){
-        if (index >= word.length()){
-            return true;
-        }
-        if (row < 0 || row >= board.length || column < 0 || column >= board[0].length ||  board[row][column] != word.charAt(index) ){
-            return false;
-        }
-        char tmp = word.charAt(index);
-        board[row][column] = '/';
-        boolean res = exist(row - 1,column,board,word,index+1) || exist(row,column - 1,board,word,index+1)||
-                        exist(row,column + 1,board,word,index+1) || exist(row + 1 ,column,board,word,index+1);
-        board[row][column] = tmp;
-        return res;
+      if (index >= word.length()){
+          return true;
+      }
+      if (row < 0 || row >= board.length || column < 0 || column < board[0].length || word.charAt(index) != board[row][column]){
+          return false;
+      }
+      boolean res = exist(row-1,column,board,word,index + 1) || exist(row,column - 1,board,word,index + 1)
+              || exist(row,column + 1,board,word,index + 1) || exist(row + 1,column,board,word,index + 1);
+      return res;
     }
 
     public static void main(String[] args) {
